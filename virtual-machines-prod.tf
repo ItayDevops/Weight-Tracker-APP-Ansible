@@ -9,8 +9,8 @@ resource "azurerm_postgresql_server" "VM-DB-SERVER" {
   location            = azurerm_resource_group.Weight-Tracker-App.location
   resource_group_name = azurerm_resource_group.Weight-Tracker-App.name
 
-  administrator_login          = "postgres"
-  administrator_login_password = "Password1234!"
+  administrator_login          = var.db-user
+  administrator_login_password = var.db-password
 
   sku_name   = "GP_Gen5_4"
   version    = "11"
@@ -57,8 +57,8 @@ resource "azurerm_postgresql_server" "VM-DB-SERVER" {
 
    os_profile {
      computer_name  = "VM-APP-SERVER"
-     admin_username = "appuser"
-     admin_password = "Password1234!"
+     admin_username = var.app-user
+     admin_password = var.app-password
    }
 
    os_profile_linux_config {
