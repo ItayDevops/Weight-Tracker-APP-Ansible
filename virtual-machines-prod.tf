@@ -12,9 +12,9 @@ resource "azurerm_postgresql_server" "VM-DB-SERVER" {
   administrator_login          = var.db-user
   administrator_login_password = var.db-password
 
-  sku_name   = "GP_Gen5_4"
+  sku_name   = "GP_Gen5_2"
   version    = "11"
-  storage_mb = 640000
+  storage_mb = 65536
 
   backup_retention_days        = 7
   geo_redundant_backup_enabled = true
